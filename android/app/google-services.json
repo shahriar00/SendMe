@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "781493622741",
+    "project_id": "sendme-60861",
+    "storage_bucket": "sendme-60861.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781493622741:android:ecc2494b9e785ef8868f5c",
+        "android_client_info": {
+          "package_name": "com.example.sendme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtgtrf8eXgZeyo9vTFLWlM6JecrW7UHoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
