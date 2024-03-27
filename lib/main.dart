@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sendme/auth/login_or_registration.dart';
+import 'package:sendme/auth/auth_gate.dart';
 import 'package:sendme/themes/dark_mode.dart';
 
 void main() async {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'SendMe',
       debugShowCheckedModeBanner: false,
       theme: lightMode,
-      home: LoginOrRegistration(),
+      home: const AuthGate(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sendme/auth/auth_service.dart';
 import 'package:sendme/components/custom_button.dart';
 import 'package:sendme/components/text_field.dart';
 
@@ -10,7 +11,17 @@ class RegistrationPage extends StatelessWidget {
   TextEditingController pass = TextEditingController();
     TextEditingController confirm_pass = TextEditingController();
 
-  void registration() {}
+  void registration(BuildContext context) {
+    final auth = AuthService();
+
+    if(pass == confirm_pass){
+      try{
+        auth.signUpWithEmailPassword(email.text, pass.text);
+      }catch(e){
+         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error")));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +74,7 @@ class RegistrationPage extends StatelessWidget {
             ),
             CustomButton(
               textdata: "Register",
-              onTap: registration,
+              onTap: ()=> registration(context),
             ),
             const SizedBox(
               height: 20,

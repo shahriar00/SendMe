@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sendme/auth/auth_service.dart';
 import 'package:sendme/components/custom_button.dart';
 import 'package:sendme/components/text_field.dart';
 
@@ -10,7 +11,17 @@ class LoginPage extends StatelessWidget {
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
 
-  void login() {}
+  void login(BuildContext context) async{
+    final authService = AuthService();
+
+    try{ 
+      await authService.signInWithEmailPassword(email.text, pass.text);
+    }
+    catch(e){
+      //throw Exception(e);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error")));
+    }
+  }
 
 
 
@@ -57,7 +68,7 @@ class LoginPage extends StatelessWidget {
             ),
             CustomButton(
               textdata: "Login",
-              onTap: login,
+              onTap: ()=>login(context),
             ),
             const SizedBox(
               height: 20,
