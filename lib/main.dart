@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sendme/auth/auth_gate.dart';
-import 'package:sendme/themes/dark_mode.dart';
+import 'package:provider/provider.dart';
+import 'package:sendme/services/auth/auth_gate.dart';
+import 'package:sendme/themes/light_mode.dart';
+import 'package:sendme/themes/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +14,12 @@ void main() async {
           messagingSenderId: "781493622741",
           projectId: "sendme-60861",
           storageBucket: "sendme-60861.appspot.com"));
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create:(context) => ThemeProvider(),
+      child: const MyApp(),
+    )
+    );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SendMe',
       debugShowCheckedModeBanner: false,
-      theme: lightMode,
+      theme: Provider.of<ThemeProvider>(context).themeData,
       home: const AuthGate(),
     );
   }

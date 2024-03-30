@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sendme/auth/auth_service.dart';
+import 'package:sendme/services/auth/auth_service.dart';
 import 'package:sendme/components/custom_button.dart';
 import 'package:sendme/components/text_field.dart';
 
@@ -11,17 +11,29 @@ class RegistrationPage extends StatelessWidget {
   TextEditingController pass = TextEditingController();
     TextEditingController confirm_pass = TextEditingController();
 
-  void registration(BuildContext context) {
-    final auth = AuthService();
+void registration(BuildContext context) async{
+  final auth = AuthService();
 
-    if(pass == confirm_pass){
-      try{
-        auth.signUpWithEmailPassword(email.text, pass.text);
-      }catch(e){
-         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error")));
-      }
+  if (pass.text == confirm_pass.text) {
+    try {
+      // Show loading indicator while registering
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Registering...")));
+      
+      // Call signUpWithEmailPassword asynchronously
+      await auth.signUpWithEmailPassword(email.text, pass.text);
+      
+      // Registration successful, show success message or navigate to next screen
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Registration successful")));
+    } catch (e) {
+      // Registration failed, show error message
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error")));
     }
+  } else {
+    // Passwords don't match, show error message
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Passwords don't match")));
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +47,7 @@ class RegistrationPage extends StatelessWidget {
             Icon(
               Icons.message,
               size: 100,
-              color: Theme.of(context).colorScheme.secondary,
+              color: Colors.blueGrey,
             ),
             const SizedBox(
               height: 20,
@@ -43,7 +55,7 @@ class RegistrationPage extends StatelessWidget {
             Text(
               "Let's create an account for you!!",
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary, fontSize: 18),
+                  color: Colors.blueGrey, fontSize: 18),
             ),
             const SizedBox(
               height: 20,
@@ -85,7 +97,7 @@ class RegistrationPage extends StatelessWidget {
                 Text(
                   "Already have an account?",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Colors.blueGrey,
                     fontSize: 18
                   ),
                 ),
@@ -96,7 +108,7 @@ class RegistrationPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Colors.blueGrey,
                     ),
                   ),
                 )

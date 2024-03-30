@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sendme/auth/auth_service.dart';
+import 'package:sendme/services/auth/auth_service.dart';
 import 'package:sendme/components/custom_button.dart';
 import 'package:sendme/components/text_field.dart';
 
@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
             Icon(
               Icons.message,
               size: 100,
-              color: Theme.of(context).colorScheme.secondary,
+              color: Colors.blueGrey,
             ),
             const SizedBox(
               height: 20,
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
             Text(
               "Welcome Back, you have been missed",
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary, fontSize: 18),
+                  color: Colors.blueGrey, fontSize: 18),
             ),
             const SizedBox(
               height: 20,
@@ -79,7 +79,7 @@ class LoginPage extends StatelessWidget {
                 Text(
                   "Not a member?",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Colors.blueGrey,
                     fontSize: 18
                   ),
                 ),
@@ -90,7 +90,7 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Colors.blueGrey,
                     ),
                   ),
                 )

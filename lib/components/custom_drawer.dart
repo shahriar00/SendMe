@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sendme/auth/auth_service.dart';
+import 'package:sendme/services/auth/auth_service.dart';
 import 'package:sendme/pages/settings_page.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -23,7 +23,7 @@ class CustomDrawer extends StatelessWidget {
                 child: Icon(
                   Icons.message,
                   size: 100,
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Colors.blueGrey,
                 ),
               ),
               const SizedBox(
@@ -32,8 +32,8 @@ class CustomDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
-                  title: Text("H O M E"),
-                  leading: Icon(Icons.home),
+                  title:const  Text("H O M E"),
+                  leading: const Icon(Icons.home),
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -42,8 +42,8 @@ class CustomDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
-                  title: Text("S E T T I N G S"),
-                  leading: Icon(Icons.home),
+                  title: const Text("S E T T I N G S"),
+                  leading:const Icon(Icons.settings),
                   onTap: () {
                     Navigator.push(
                         context,
@@ -57,8 +57,8 @@ class CustomDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 25,bottom: 25),
             child: ListTile(
-              title: Text("L O G O U T"),
-              leading: Icon(Icons.home),
+              title: const Text("L O G O U T"),
+              leading: const Icon(Icons.logout),
               onTap: logOut,
             ),
           )
