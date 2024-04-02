@@ -27,3 +27,9 @@
 
 
 ![s6](https://github.com/shahriar00/SendMe/assets/70763173/1ac7cf25-2622-4415-afe7-18a68ec92d95)
+
+
+![s7](https://github.com/shahriar00/SendMe/assets/70763173/1e9ac3da-eca8-4baa-8adf-c18d94725aee)
+
+
+
